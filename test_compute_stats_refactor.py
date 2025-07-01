@@ -33,3 +33,4 @@ class TestComputeStats(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(argv=['ignored', '-v'], exit=False)
+    print("Tests done")
