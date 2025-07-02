@@ -34,7 +34,7 @@ def minimum():
     for num in data:
         if num < min:
             min = num
-    return min
+    return min - 1
 
 def maximum():
     data = read_ints()
