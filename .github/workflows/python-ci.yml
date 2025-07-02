@@ -1,0 +1,50 @@
+# Name of your workflow - appears in GitHub Actions tab
+name: Python CI
+
+# When the workflow will run
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the 'main' branch
+  pull_request:
+    branches:
+      - main # Trigger on pull requests targeting the 'main' branch
+
+# Define one or more jobs
+jobs:
+  build:
+    # The operating system to run the job on
+    runs-on: ubuntu-latest
+
+    # Steps that will be executed in this job
+    steps:
+      # Step 1: Checkout your repository code
+      # This action checks out your repository under $GITHUB_WORKSPACE
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python environment
+      # This action sets up a Python environment. Replace '3.x' with your desired Python version.
+      # For robustness, you might test with multiple versions like ['3.8', '3.9', '3.10']
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' # Use a specific version, e.g., '3.9' or '3.10'
+
+      # Step 3: Install dependencies (if you have a requirements.txt)
+      # If your project has dependencies listed in a requirements.txt, install them.
+      # If compute_stats_refactor.py is standalone, you might not need this.
+    # - name: Install dependencies
+    #   run: |
+    #     python -m pip install --upgrade pip
+          # If you have a requirements.txt file:
+          # pip install -r requirements.txt
+        # Continue with other setup if needed, e.g., for specific test dependencies
+
+      # Step 4: Run your unit tests
+      # This assumes your unit tests are discoverable by the unittest module.
+      # If your tests are in a 'tests/' directory, this command will find them.
+      - name: Run unit tests
+        run: python -m unittest discover # This command discovers and runs tests
+        # If your tests are in a specific file, e.g., 'tests/test_stats.py', you might use:
+        # run: python -m unittest tests/test_stats.py
