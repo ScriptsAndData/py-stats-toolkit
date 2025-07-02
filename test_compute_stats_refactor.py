@@ -1,5 +1,4 @@
 import unittest
-from my_unittest_utils import DUMMY_BOOL_FAIL, DUMMY_FLOAT_FAIL, DUMMY_INT_FAIL, DUMMY_STR_FAIL
 from compute_stats_refactor import *
 
 class TestComputeStats(unittest.TestCase):
