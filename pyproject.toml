@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# This is the name people will 'pip install'
+# Make it all lowercase, use hyphens, and ensure it's unique (e.g., add your username)
+name = "compute-stats-refactor-scriptsanddata" # <--- UPDATE THIS! e.g., 'compute-stats-refactor-joeblogs'
+version = "0.0.2" # Remember to update this for new releases
+authors = [
+  { name="Scripts and Data", email="your.email@example.com" },
+]
+description = "A refactored module for statistical computations."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["statistics", "math", "tdd"]
+
+# THIS IS THE KEY CHANGE for the new package structure:
+[tool.setuptools.packages]
+# Tell setuptools to find packages in the current directory,
+# or specifically list them if they are not directly at the root.
+# For a simple package at the root:
+find = {} # This will auto-discover 'compute_stats_refactor/' as a package
+
+# Alternatively, if you want to be explicit:
+# packages = ["compute_stats_refactor"]
+
+# If you had put your package inside a 'src' directory (src/compute_stats_refactor):
+# packages = ["src/compute_stats_refactor"]
+# package_dir = {"" = "src"}
+
+
+[project.urls]
+"Homepage" = "https://github.com/ScriptsAndData/TDD3_mod2_lab"
+"Bug Tracker" = "https://github.com/ScriptsAndData/TDD3_mod2_lab/issues"
