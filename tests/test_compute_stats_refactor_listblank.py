@@ -9,40 +9,40 @@ class TestComputeStats(unittest.TestCase):
     """Testing blank list []"""
     sample_data = []
 
-    def test_201_count(self):
-        self.assertEqual(count(self.sample_data), 0)
+    def test_201_calculate_count(self):
+        self.assertEqual(calculate_count(self.sample_data), 0)
 
-    def test_202_summation(self):
-        self.assertEqual(summation(self.sample_data), 0)
+    def test_202_calculate_sum(self):
+        self.assertEqual(calculate_sum(self.sample_data), 0)
 
-    def test_203_average(self):
+    def test_203_calculate_mean(self):
         with self.assertRaises(ValueError) as cm:
-            average(self.sample_data)
+            calculate_mean(self.sample_data)
         self.assertEqual(str(cm.exception), "Cannot calculate average of an empty list")
 
-    def test_204_minimum(self):
+    def test_204_calculate_min(self):
         with self.assertRaises(ValueError) as cm:
-            minimum(self.sample_data)
+            calculate_min(self.sample_data)
         self.assertEqual(str(cm.exception), "Cannot find minimum value of an empty list")
 
-    def test_205_maximum(self):
+    def test_205_calculate_max(self):
         with self.assertRaises(ValueError) as cm:
-            maximum(self.sample_data)
+            calculate_max(self.sample_data)
         self.assertEqual(str(cm.exception), "Cannot find maximum value of an empty list")
 
-    def test_206_harmonic_mean(self):
+    def test_206_calculate_harmonic_mean(self):
         with self.assertRaises(ValueError) as cm:
-            harmonic_mean(self.sample_data)
+            calculate_harmonic_mean(self.sample_data)
         self.assertEqual(str(cm.exception), "Cannot calculate harmonic mean of an empty list")
 
-    def test_207_variance(self):
+    def test_207_calculate_variance(self):
         with self.assertRaises(ValueError) as cm:
-            variance(self.sample_data)
+            calculate_variance(self.sample_data)
         self.assertEqual(str(cm.exception), "Cannot calculate variance of an empty list")
 
-    def test_208_standard_dev(self):
+    def test_208_calculate_std_dev(self):
         with self.assertRaises(ValueError) as cm:
-            standard_dev(self.sample_data)
+            calculate_std_dev(self.sample_data)
         self.assertEqual(str(cm.exception), "Cannot calculate standard deviation of an empty list")
 
 if __name__ == '__main__':

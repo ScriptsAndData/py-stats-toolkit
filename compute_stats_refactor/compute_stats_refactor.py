@@ -1,34 +1,24 @@
-import os
 import math
-script_dir = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(script_dir, 'random_nums.txt')
 
-def read_ints():
-    data = []
-    with open(file_path, 'r') as f:
-        for line in f:
-            num = int(line)
-            data.append(num)
-    return data
+def calculate_count(data):
+    # i = 0
+    # while i < len(data):
+    #     i += 1
+    # return i
+    return len(data)
 
-def count(data):
-    i = 0
-    while i < len(data):
-        i += 1
-    return i
-
-def summation(data):
+def calculate_sum(data):
     sum1 = 0
     for num in data:
         sum1 += num
     return sum1
 
-def average(data):
+def calculate_mean(data):
     if len(data) == 0:
         raise ValueError("Cannot calculate average of an empty list")
-    return summation(data)/count(data)
+    return calculate_sum(data)/calculate_count(data)
 
-def minimum(data):
+def calculate_min(data):
     if len(data) == 0:
         raise ValueError("Cannot find minimum value of an empty list")
     
@@ -38,7 +28,7 @@ def minimum(data):
             min_val = num
     return min_val
 
-def maximum(data):
+def calculate_max(data):
     if len(data) == 0:
         raise ValueError("Cannot find maximum value of an empty list")
     
@@ -48,23 +38,23 @@ def maximum(data):
             max_val = num
     return max_val
 
-def harmonic_mean(data):
+def calculate_harmonic_mean(data):
     if len(data) == 0:
         raise ValueError("Cannot calculate harmonic mean of an empty list")
     sum_of_reciprocals = sum(1 / num for num in data)
-    harmonic_mean = count(data) / sum_of_reciprocals
+    harmonic_mean = calculate_count(data) / sum_of_reciprocals
     return harmonic_mean
 
-def variance(data):
+def calculate_variance(data):
     if len(data) == 0:
         raise ValueError("Cannot calculate variance of an empty list")
-    mean = average(data)
+    mean = calculate_mean(data)
     squared_differences_sum = sum((x - mean) ** 2 for x in data)
-    variance = squared_differences_sum / count(data)
+    variance = squared_differences_sum / calculate_count(data)
     return variance
 
-def standard_dev(data):
+def calculate_std_dev(data):
     if len(data) == 0:
         raise ValueError("Cannot calculate standard deviation of an empty list")
     # Standard deviation is the square root of variance
-    return math.sqrt(variance(data))
+    return math.sqrt(calculate_variance(data))
