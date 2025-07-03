@@ -36,8 +36,6 @@ def calculate_max(data):
     for num in data[1:]: # Start from the second element
         if num > max_val:
             max_val = num
-    # INSERT A DELIBERATE ERROR IN MAX CALCULATION
-    max_val = max_val + 998000
     return max_val
 
 def calculate_harmonic_mean(data):
