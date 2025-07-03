@@ -1,5 +1,14 @@
 import unittest
-from compute_stats_refactor.compute_stats_refactor import *
+from py_stats_toolkit import (
+    calculate_count,
+    calculate_sum,
+    calculate_mean,
+    calculate_min,
+    calculate_max,
+    calculate_harmonic_mean,
+    calculate_variance,
+    calculate_std_dev
+)
 
 class TestComputeStats(unittest.TestCase):
     """

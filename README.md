@@ -1,8 +1,7 @@
-# compute-stats-refactor (TDD Learning Project)
+# py-stats-toolkit (TDD Learning Project)
 
 ## Project Overview
-
-This repository houses a personal learning project focused on developing statistical computation functions using Test-Driven Development (TDD) principles. It's primarily a sandbox for exploring Python packaging, testing methodologies, and refactoring techniques.
+This repository houses a personal project primarily focused on learning and applying Test-Driven Development (TDD) principles to the creation of statistical computation functions. It also serves as a sandbox for exploring Python packaging, broader testing methodologies, and refactoring techniques
 
 ## Features
 
@@ -13,8 +12,8 @@ This repository houses a personal learning project focused on developing statist
 ## Project Structure
 
 The key components are:
-* `compute_stats_refactor/`: The main Python package containing the statistical computation logic.
-* `tests/`: Contains unit tests for the functions in `compute_stats_refactor`.
+* `py_stats_toolkit/`: The main Python package containing the statistical computation logic.
+* `tests/`: Contains unit tests for the functions in `py_stats_toolkit`.
 * `pyproject.toml`: Defines the project metadata and build system.
 
 ## Installation (Local Development)
@@ -23,8 +22,8 @@ This project is intended for local development and learning.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/ScriptsAndData/TDD3_mod2_lab.git](https://github.com/ScriptsAndData/TDD3_mod2_lab.git)
-    cd TDD3_mod2_lab
+    git clone https://github.com/ScriptsAndData/py-stats-toolkit.git
+    cd py-stats-toolkit
     ```
 
 2.  **Create and activate a virtual environment** (highly recommended):
@@ -35,7 +34,7 @@ This project is intended for local development and learning.
     ```
 
 3.  **Install project in editable mode** (optional, but good for development):
-    This allows you to import `compute_stats_refactor` as a package.
+    This allows you to import `py_stats_toolkit` as a package.
     ```bash
     pip install -e .
     ```
@@ -45,8 +44,8 @@ This project is intended for local development and learning.
 Once installed, you can import and use the statistical functions in your Python scripts or interactive sessions.
 
 ```python
-# Example of using the package (assuming functions like calculate_mean exist)
-from compute_stats_refactor.compute_stats_refactor import calculate_mean, calculate_std_dev
+# Example of using the package
+from py_stats_toolkit import calculate_mean, calculate_std_dev
 
 data = [10, 20, 30, 40, 50]
 mean_val = calculate_mean(data)
