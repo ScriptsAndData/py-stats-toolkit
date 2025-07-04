@@ -1,4 +1,14 @@
-# py_stats_toolkit/__init__.py
+"""
+Initializes the py_stats_toolkit package.
+
+This __init__.py file is used to expose the main statistical calculation functions
+from the 'calculations' submodule directly under the 'py_stats_toolkit' namespace.
+This allows users to import functions like 'from py_stats_toolkit import calculate_mean'
+instead of 'from py_stats_toolkit.calculations import calculate_mean'.
+
+It also defines __all__ to explicitly control which names are exported when
+'from py_stats_toolkit import *' is used.
+"""
 
 from .calculations import (
     calculate_count,
@@ -23,5 +33,5 @@ __all__ = [
     'calculate_std_dev'
 ]
 
-# Package-level setup below 
+# Package-level setup below
 # None

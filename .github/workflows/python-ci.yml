@@ -29,4 +29,4 @@ jobs:
 
     - name: Run Pylint
       run: |
-        pylint py_stats_toolkit --fail-under=8.0
+        pylint py_stats_toolkit tests --fail-under=8.0
