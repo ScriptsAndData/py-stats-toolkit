@@ -1,0 +1,41 @@
+on:
+  release:
+    types: [published] # This workflow runs when a new release is published
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: Release # Optional: Use environments for deployment protection
+    permissions:
+      contents: write # Needed to create a release if using that trigger type, or for assets
+      id-token: write # IMPORTANT: Needed for trusted publisher (recommended for PyPI)
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x' # Or specify 3.10, 3.11, 3.12 etc.
+        cache: 'pip' # Cache pip dependencies for faster builds
+
+    - name: Install build and twine
+      run: |
+        python -m pip install --upgrade pip
+        pip install build twine
+
+    - name: Build sdist and wheel
+      run: python -m build
+
+    - name: Publish package to TestPyPI
+      # This step only runs if a tag starting with 'v' is pushed,
+      # or if a release is published.
+      run: |
+        python -m twine upload --repository testpypi dist/*
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }} # Use your GitHub secret!
+      # Optional: You can add an 'if' condition here to only publish
+      # if the event is a release and not just a tag, or based on branch.
+      # if: github.event_name == 'release' && github.event.action == 'published'
