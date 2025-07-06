@@ -17,15 +17,15 @@ import math
 
 def calculate_count(data):
     """
-    Calculates the number of elements in a given list.
+    Calculates the number of numeric elements in a given list.
 
     Args:
         data (list): The list of numbers.
 
     Returns:
-        int: The total number of elements in the list.
+        int: The total number of numeric elements in the list.
     """
-    return len(data)
+    return sum(1 for item in data if isinstance(item, (int, float)))
 
 def calculate_sum(data):
     """
